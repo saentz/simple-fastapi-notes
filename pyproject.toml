@@ -1,0 +1,26 @@
+[project]
+name = "notes-api"
+version = "0.1.0"
+description = "A very simple personal notes API built with FastAPI."
+requires-python = ">=3.11"
+
+# ---------- Ruff (linter + formatter) ----------
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+# E/W = style, F = bugs, I = import order, N = naming, UP = modern syntax,
+# B = common pitfalls, D = docstrings
+select = ["E", "W", "F", "I", "N", "UP", "B", "D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+# Tests don't need docstrings on every module/package.
+"tests/*" = ["D100", "D104"]
+
+# ---------- Pytest ----------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
